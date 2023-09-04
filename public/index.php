@@ -12,7 +12,19 @@ define('VIEW_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 // echo '<br />';
 // echo VIEW_PATH;
 
+
 require APP_PATH . 'app.php';
 
+
 $files = getTransactionFiles(FILE_PATH);
-var_dump($files);
+// var_dump($files);
+
+
+$transactions = [];
+foreach ($files as $file) {
+    # code...
+    $transactions = array_merge($transactions, getTransactions($file));
+}
+
+// print_r($transactions);
+require VIEW_PATH . 'transactions.php';
