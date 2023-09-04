@@ -1,14 +1,14 @@
 <?php
 
-function getTransactionFiles()
+function getTransactionFiles(string $dirPath)
 {
     $files = [];
-    foreach (scandir(FILE_PATH) as $file) {
-        // var_dump($file);
+    foreach (scandir($dirPath) as $file) {
         if (is_dir($file)) {
             continue;
         }
-        $files[] = $file;
+        $files[] = $dirPath . $file;
     }
-    return $files;
+    // print_r($files);
+    return $dirPath = $files;
 }
